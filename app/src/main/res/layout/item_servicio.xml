@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/txtNombreServicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:text="Nombre del servicio" />
+
+    <TextView
+        android:id="@+id/txtDescripcionServicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción del servicio" />
+
+    <TextView
+        android:id="@+id/txtImporteServicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="€00.00"
+        android:textColor="#4CAF50"
+        android:textStyle="italic" />
+
+</LinearLayout>
