@@ -14,7 +14,16 @@
         android:text="AmigoPeludo"
         android:textSize="26sp"
         android:textStyle="bold"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginBottom="20dp" />
+
+    <!-- Aquí insertas la imagen -->
+    <ImageView
+        android:id="@+id/ivMascota"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/logo_amigopeludo"
+        android:contentDescription="Imagen de una mascota"
+        android:layout_marginBottom="20dp" />
 
     <Button
         android:id="@+id/btnLogin"

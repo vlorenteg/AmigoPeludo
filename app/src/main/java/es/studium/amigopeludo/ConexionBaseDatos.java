@@ -37,7 +37,6 @@ public class ConexionBaseDatos {
         void onError(String mensaje);
     }
 
-    // Método LOGIN
     public static void login(String email, String password, LoginCallback callback) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -78,7 +77,6 @@ public class ConexionBaseDatos {
         }).start();
     }
 
-    // Método REGISTRO
     public static void registrar(String nombre, String telefono, String email, String password, String tipo, RegistroCallback callback) {
         OkHttpClient client = new OkHttpClient();
         RequestBody formBody = new FormBody.Builder()
@@ -115,7 +113,6 @@ public class ConexionBaseDatos {
         }).start();
     }
 
-    // Método OBTENER CITAS
     public static void obtenerCitas(ObtenerCitasCallback callback) {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()

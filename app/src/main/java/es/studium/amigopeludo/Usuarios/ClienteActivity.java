@@ -42,7 +42,7 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
         citasList = new ArrayList<>();
         serviciosList = crearServiciosSimulados();
 
-        citasAdapter = new CitasAdapter(citasList, this); // 'this' ahora se refiere a ClienteActivity que implementa el listener
+        citasAdapter = new CitasAdapter(citasList, this);
 
         recyclerView.setAdapter(citasAdapter);
 
