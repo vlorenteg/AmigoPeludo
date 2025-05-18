@@ -7,7 +7,7 @@ public class Cita {
     private int idCliente;
     private int idServicio;
 
-    public Cita(String fecha, String estado) {
+    public Cita(int idCita, String fecha, String estado, int idCliente, int idServicio) {
         this.idCita = idCita;
         this.fecha = fecha;
         this.estado = estado;

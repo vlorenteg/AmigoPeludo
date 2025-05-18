@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -25,10 +26,15 @@
             </intent-filter>
         </activity>
 
-        <!-- Agregar nuevas actividades aquí -->
-        <activity android:name=".Usuarios.ClienteActivity" />
-        <activity android:name=".Usuarios.ProfesionalActivity" />
+        <activity
+            android:name=".Usuarios.ClienteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Usuarios.ProfesionalActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Servicios.ServiciosActivity"
+            android:exported="true" />
 
     </application>
-
 </manifest>

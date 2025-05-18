@@ -3,14 +3,17 @@
     android:orientation="vertical"
     android:padding="20dp"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
 
     <EditText
         android:id="@+id/etEmailLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
+        android:hint="Correo electrónico"
+        android:inputType="textEmailAddress"
+        android:importantForAutofill="yes"
+        android:maxLines="1" />
 
     <EditText
         android:id="@+id/etPasswordLogin"
@@ -18,6 +21,8 @@
         android:layout_height="wrap_content"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        android:layout_marginTop="10dp" />
-
+        android:maxLength="255"
+        android:importantForAutofill="no"
+        android:layout_marginTop="10dp"
+        android:maxLines="1" />
 </LinearLayout>

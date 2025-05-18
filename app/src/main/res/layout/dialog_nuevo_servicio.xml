@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:padding="16dp"
@@ -8,20 +9,27 @@
         android:id="@+id/edtNombreServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del servicio" />
+        android:hint="Nombre del servicio"
+        android:inputType="textCapWords"
+        android:maxLength="50" />
 
     <EditText
         android:id="@+id/edtDescripcionServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descripción" />
+        android:hint="Descripción"
+        android:inputType="textCapSentences"
+        android:maxLength="255"
+        android:layout_marginTop="8dp" />
 
     <EditText
         android:id="@+id/edtImporteServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Importe (€)"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:maxLength="10"
+        android:layout_marginTop="8dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -42,6 +50,5 @@
             android:layout_height="wrap_content"
             android:text="Aceptar"
             android:layout_marginStart="8dp" />
-
     </LinearLayout>
 </LinearLayout>

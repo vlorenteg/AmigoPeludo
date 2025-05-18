@@ -1,7 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+
     <style name="Base.Theme.AmigoPeludo" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Colores para modo oscuro -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorSecondary">@color/purple_500</item>
+
+        <!-- Barra de estado -->
+        <item name="android:statusBarColor">@color/purple_700</item>
+        <item name="android:windowLightStatusBar">false</item>
     </style>
+
+    <style name="Theme.AmigoPeludo" parent="Base.Theme.AmigoPeludo" />
 </resources>
