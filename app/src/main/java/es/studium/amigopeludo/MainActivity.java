@@ -26,17 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences prefs = getSharedPreferences("amigopeludo", MODE_PRIVATE);
-        int idUsuario = prefs.getInt("idUsuario", -1);
-        String tipoUsuario = prefs.getString("tipoUsuario", null);
-
-        if (idUsuario != -1 && tipoUsuario != null) {
-            Intent intent = tipoUsuario.equals("cliente") ?
-                    new Intent(this, ClienteActivity.class) :
-                    new Intent(this, ProfesionalActivity.class);
-            intent.putExtra("idUsuario", idUsuario);
-            startActivity(intent);
-            finish();
-        }
+        String lastEmail = prefs.getString("lastEmail", "");
+        String lastPassword = prefs.getString("lastPassword", "");
 
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
@@ -50,10 +41,26 @@ public class MainActivity extends AppCompatActivity {
         EditText etEmail = dialogView.findViewById(R.id.etEmailLogin);
         EditText etPassword = dialogView.findViewById(R.id.etPasswordLogin);
 
+        // Cargar últimos datos guardados
+        SharedPreferences prefs = getSharedPreferences("amigopeludo", MODE_PRIVATE);
+        String lastEmail = prefs.getString("lastEmail", "");
+        String lastPassword = prefs.getString("lastPassword", "");
+
+        etEmail.setText(lastEmail);
+        etPassword.setText(lastPassword);
+
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Iniciar Sesión").setView(dialogView);
 
-        builder.setPositiveButton("Entrar", (dialog, which) -> {
+        builder.setPositiveButton("Entrar", null); // Lo configuramos manualmente después
+        builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        // Configurar el botón manualmente para evitar cierre automático
+        Button positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE);
+        positiveButton.setOnClickListener(v -> {
             String email = etEmail.getText().toString().trim();
             String password = etPassword.getText().toString().trim();
 
@@ -66,9 +73,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onSuccess(int idUsuario, String tipoUsuario) {
                         runOnUiThread(() -> {
+                            // Guardar sesión
                             SharedPreferences.Editor editor = getSharedPreferences("amigopeludo", MODE_PRIVATE).edit();
                             editor.putInt("idUsuario", idUsuario);
                             editor.putString("tipoUsuario", tipoUsuario);
+
+                            // También guardar último email y pass usados
+                            editor.putString("lastEmail", email);
+                            editor.putString("lastPassword", password);
                             editor.apply();
 
                             Intent intent = tipoUsuario.equalsIgnoreCase("cliente") ?
@@ -87,10 +99,8 @@ public class MainActivity extends AppCompatActivity {
                 });
             }
         });
-
-        builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
-        builder.show();
     }
+
 
     private void showRegisterDialog() {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_register, null);

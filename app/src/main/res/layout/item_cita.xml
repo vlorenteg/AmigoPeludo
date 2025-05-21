@@ -6,18 +6,38 @@
     android:padding="16dp">
 
     <TextView
+        android:id="@+id/txtServicio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Servicio"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtProfesional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profesional"
+        android:textColor="#555" />
+
+    <TextView
         android:id="@+id/estado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Estado de la cita"
         android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fecha de la cita"/>
+        android:text="Fecha de la cita" />
 
+    <TextView
+        android:id="@+id/hora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Hora de la cita"
+        android:layout_marginTop="4dp" />
 
 </LinearLayout>

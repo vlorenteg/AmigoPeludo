@@ -35,6 +35,9 @@
         <activity
             android:name=".Servicios.ServiciosActivity"
             android:exported="true" />
+        <activity
+            android:name=".ListadoProfesionales.ListadoProfesionalesActivity"
+            android:exported="true" />
 
     </application>
 </manifest>

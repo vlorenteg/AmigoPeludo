@@ -62,6 +62,17 @@ public class ProfesionalActivity extends AppCompatActivity implements RecyclerVi
         cargarCitasDelProfesional();
     }
 
+    private void cargarCitasDelProfesional() {
+        new Thread(() -> {
+            ArrayList<Cita> citas = ConexionBaseDatos.consultarCitasPorProfesional(idProfesional);
+            runOnUiThread(() -> {
+                citasList.clear();
+                citasList.addAll(citas);
+                citasAdapter.notifyDataSetChanged();
+            });
+        }).start();
+    }
+
     @Override
     public boolean onSupportNavigateUp() {
         onBackPressed();
@@ -102,22 +113,10 @@ public class ProfesionalActivity extends AppCompatActivity implements RecyclerVi
         Toast.makeText(this, "Usa el botón de cerrar sesión", Toast.LENGTH_SHORT).show();
     }
 
-
-    private void cargarCitasDelProfesional() {
-        new Thread(() -> {
-            ArrayList<Cita> citas = ConexionBaseDatos.consultarCitasPorProfesional(idProfesional);
-            runOnUiThread(() -> {
-                citasList.clear();
-                citasList.addAll(citas);
-                citasAdapter.notifyDataSetChanged();
-            });
-        }).start();
-    }
-
     @Override
     public void onClick(View v, int position) {
         Cita cita = citasList.get(position);
-        Toast.makeText(this, "Cita: " + cita.getFecha(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Cita: " + cita.getFecha() + " " + cita.getHora(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -145,5 +144,4 @@ public class ProfesionalActivity extends AppCompatActivity implements RecyclerVi
                 .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
                 .show();
     }
-
 }

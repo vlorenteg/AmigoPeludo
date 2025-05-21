@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/txtNombreProfesional"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profesional: "
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:padding="4dp"/>
+
+
+    <Spinner
+        android:id="@+id/spinnerServicios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:spinnerMode="dropdown" />
+
+    <EditText
+        android:id="@+id/edtFecha"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Selecciona la fecha"
+        android:focusable="false"
+        android:clickable="true"
+        android:inputType="none"
+        android:background="?android:attr/editTextBackground"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/edtHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Selecciona la hora"
+        android:focusable="false"
+        android:clickable="true"
+        android:inputType="none"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

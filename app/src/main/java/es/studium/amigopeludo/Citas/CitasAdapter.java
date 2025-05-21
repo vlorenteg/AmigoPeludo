@@ -14,9 +14,8 @@ import es.studium.amigopeludo.RecyclerViewOnItemClickListener;
 public class CitasAdapter extends RecyclerView.Adapter<CitaViewHolder> {
 
     private List<Cita> citasList;
-    private RecyclerViewOnItemClickListener itemClickListener; // Usamos la interfaz genérica
+    private RecyclerViewOnItemClickListener itemClickListener;
 
-    // Constructor
     public CitasAdapter(List<Cita> citasList, RecyclerViewOnItemClickListener itemClickListener) {
         this.citasList = citasList;
         this.itemClickListener = itemClickListener;
@@ -31,7 +30,7 @@ public class CitasAdapter extends RecyclerView.Adapter<CitaViewHolder> {
     @Override
     public void onBindViewHolder(CitaViewHolder holder, int position) {
         Cita cita = citasList.get(position);
-        holder.bind(cita, itemClickListener, position); // Pasamos el listener y la posición
+        holder.bind(cita, itemClickListener, position);
     }
 
     @Override
