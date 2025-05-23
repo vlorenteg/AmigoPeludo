@@ -27,6 +27,12 @@
             app:title="Citas Profesionales"
             app:titleTextColor="@android:color/white" />
 
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewCitasProfesional"
             android:layout_width="match_parent"
@@ -35,6 +41,7 @@
             android:layout_margin="16dp" />
 
         <Button
+            style="@style/AmigoButton.Primary"
             android:id="@+id/btnServicios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

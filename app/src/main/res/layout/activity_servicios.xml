@@ -35,6 +35,7 @@
             android:layout_margin="16dp" />
 
         <Button
+            style="@style/AmigoButton.Primary"
             android:id="@+id/btnNuevoServicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

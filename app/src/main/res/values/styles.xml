@@ -1,0 +1,28 @@
+<resources>
+
+    <!-- Estilo para botones principales -->
+    <style name="AmigoButton.Primary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/amigopeludo_primary</item>
+        <item name="android:textColor">@color/amigopeludo_onPrimary</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Botón secundario en color amarillo -->
+    <style name="AmigoButton.Secondary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/amigopeludo_secondary</item>
+        <item name="android:textColor">@color/amigopeludo_primary</item>
+    </style>
+
+    <!-- Texto principal -->
+    <style name="AmigoText.Title" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:textColor">@color/amigopeludo_primary</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Subtítulo o texto gris -->
+    <style name="AmigoText.Subtitle" parent="TextAppearance.Material3.BodyMedium">
+        <item name="android:textColor">@color/amigopeludo_gray</item>
+    </style>
+
+</resources>

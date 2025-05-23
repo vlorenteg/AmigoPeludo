@@ -1,15 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- Tema base sin ActionBar para usar Toolbar -->
     <style name="Base.Theme.AmigoPeludo" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Colores para modo claro -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <item name="colorSecondary">@color/purple_200</item>
+        <!-- Colores principales corporativos -->
+        <item name="colorPrimary">@color/amigopeludo_primary</item>
+        <item name="colorOnPrimary">@color/amigopeludo_onPrimary</item>
+        <item name="colorSecondary">@color/amigopeludo_secondary</item>
 
-        <!-- Barra de estado -->
-        <item name="android:statusBarColor">@color/purple_700</item>
+        <!-- Fondo y barra de estado -->
+        <item name="android:statusBarColor">@color/amigopeludo_primary</item>
         <item name="android:windowLightStatusBar">true</item>
+        <item name="android:colorBackground">@color/amigopeludo_background</item>
     </style>
 
     <style name="Theme.AmigoPeludo" parent="Base.Theme.AmigoPeludo" />

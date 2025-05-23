@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Iniciar Sesión").setView(dialogView);
 
-        builder.setPositiveButton("Entrar", null); // Lo configuramos manualmente después
+        builder.setPositiveButton("Entrar", null);
         builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
 
         AlertDialog dialog = builder.create();

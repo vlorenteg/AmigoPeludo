@@ -7,4 +7,12 @@
     <color name="colorPrimary">#6A1B9A</color>
     <color name="colorOnPrimary">#FFFFFF</color>
     <color name="purple_200">#BB86FC</color>
+    <color name="amigopeludo_primary">#3E6259</color>
+    <color name="amigopeludo_onPrimary">#FFFFFF</color>
+    <color name="amigopeludo_secondary">#F4B400</color>
+    <color name="amigopeludo_gray">#999999</color>
+    <color name="amigopeludo_background">#FFFFFF</color>
+    <color name="amigopeludo_accent">#FFD54F</color>
+    <color name="item_background_soft">#E3F2E9</color>
+    <color name="amigopeludo_success">#6BA384</color>
 </resources>

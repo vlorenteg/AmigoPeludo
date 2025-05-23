@@ -536,8 +536,10 @@ public class ConexionBaseDatos {
                             json.getInt("idUsuario"),
                             json.getString("nombreUsuario"),
                             json.getString("telefonoUsuario"),
-                            json.getString("emailUsuario")
+                            json.getString("emailUsuario"),
+                            json.optString("servicios", "Sin servicios")
                     ));
+
                 }
             }
         } catch (Exception e) {

@@ -38,7 +38,7 @@ public class ServiciosActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle("Mis Servicios");
+            getSupportActionBar().setTitle(getString(R.string.titulo_mis_servicios));
         }
 
         idProfesional = getIntent().getIntExtra("idUsuario", -1);
@@ -82,16 +82,16 @@ public class ServiciosActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_logout) {
             new AlertDialog.Builder(this)
-                    .setTitle("Cerrar sesión")
-                    .setMessage("¿Estás seguro de que deseas cerrar sesión?")
-                    .setPositiveButton("Sí", (dialog, which) -> {
+                    .setTitle(getString(R.string.titulo_cerrar_sesion))
+                    .setMessage(getString(R.string.mensaje_cerrar_sesion))
+                    .setPositiveButton(getString(R.string.accion_si), (dialog, which) -> {
                         getSharedPreferences("amigopeludo", MODE_PRIVATE).edit().clear().apply();
                         Intent intent = new Intent(this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         finish();
                     })
-                    .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                    .setNegativeButton(getString(R.string.accion_no), (dialog, which) -> dialog.dismiss())
                     .show();
             return true;
         } else if (item.getItemId() == android.R.id.home) {
@@ -116,7 +116,7 @@ public class ServiciosActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.dialog_nuevo_servicio, null);
         builder.setView(view);
-        builder.setTitle("Nuevo Servicio");
+        builder.setTitle(getString(R.string.titulo_nuevo_servicio));
 
         AlertDialog dialog = builder.create();
         dialog.show();
@@ -135,7 +135,7 @@ public class ServiciosActivity extends AppCompatActivity {
             String importeStr = edtImporte.getText().toString().trim();
 
             if (nombre.isEmpty() || descripcion.isEmpty() || importeStr.isEmpty()) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.mensaje_completa_campos), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -143,7 +143,7 @@ public class ServiciosActivity extends AppCompatActivity {
             try {
                 importe = Double.parseDouble(importeStr);
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Importe inválido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.mensaje_importe_invalido), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -153,11 +153,11 @@ public class ServiciosActivity extends AppCompatActivity {
                 int resultado = ConexionBaseDatos.altaServicio(nuevoServicio, idProfesional);
                 runOnUiThread(() -> {
                     if (resultado == 201) {
-                        Toast.makeText(this, "Servicio agregado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.mensaje_servicio_agregado), Toast.LENGTH_SHORT).show();
                         cargarServicios();
                         dialog.dismiss();
                     } else {
-                        Toast.makeText(this, "Error al agregar servicio", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.mensaje_error_agregar), Toast.LENGTH_SHORT).show();
                     }
                 });
             }).start();
@@ -168,7 +168,7 @@ public class ServiciosActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.dialog_nuevo_servicio, null);
         builder.setView(view);
-        builder.setTitle("Editar Servicio");
+        builder.setTitle(getString(R.string.titulo_editar_servicio));
 
         EditText edtNombre = view.findViewById(R.id.edtNombreServicio);
         EditText edtDescripcion = view.findViewById(R.id.edtDescripcionServicio);
@@ -191,7 +191,7 @@ public class ServiciosActivity extends AppCompatActivity {
             String importeStr = edtImporte.getText().toString().trim();
 
             if (nombre.isEmpty() || descripcion.isEmpty() || importeStr.isEmpty()) {
-                Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.mensaje_completa_campos), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -199,7 +199,7 @@ public class ServiciosActivity extends AppCompatActivity {
             try {
                 importe = Double.parseDouble(importeStr);
             } catch (NumberFormatException e) {
-                Toast.makeText(this, "Importe inválido", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, getString(R.string.mensaje_importe_invalido), Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -211,36 +211,35 @@ public class ServiciosActivity extends AppCompatActivity {
                 int resultado = ConexionBaseDatos.modificarServicio(servicio);
                 runOnUiThread(() -> {
                     if (resultado == 200) {
-                        Toast.makeText(this, "Servicio actualizado", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.mensaje_servicio_actualizado), Toast.LENGTH_SHORT).show();
                         cargarServicios();
                         dialog.dismiss();
                     } else {
-                        Toast.makeText(this, "Error al actualizar servicio", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(this, getString(R.string.mensaje_error_actualizar), Toast.LENGTH_SHORT).show();
                     }
                 });
             }).start();
         });
     }
 
-
     private void showDeleteServicioDialog(Servicio servicio) {
         new AlertDialog.Builder(this)
-                .setTitle("Eliminar Servicio")
-                .setMessage("¿Estás seguro de que deseas eliminar este servicio?")
-                .setPositiveButton("Sí", (dialog, which) -> {
+                .setTitle(getString(R.string.titulo_eliminar_servicio))
+                .setMessage(getString(R.string.mensaje_eliminar_servicio))
+                .setPositiveButton(getString(R.string.accion_si), (dialog, which) -> {
                     new Thread(() -> {
                         int resultado = ConexionBaseDatos.eliminarServicio(servicio.getIdServicio());
                         runOnUiThread(() -> {
                             if (resultado == 200) {
-                                Toast.makeText(this, "Servicio eliminado", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, getString(R.string.mensaje_servicio_eliminado), Toast.LENGTH_SHORT).show();
                                 cargarServicios();
                             } else {
-                                Toast.makeText(this, "Error al eliminar servicio", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(this, getString(R.string.mensaje_error_eliminar), Toast.LENGTH_SHORT).show();
                             }
                         });
                     }).start();
                 })
-                .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
+                .setNegativeButton(getString(R.string.accion_no), (dialog, which) -> dialog.dismiss())
                 .show();
     }
 }

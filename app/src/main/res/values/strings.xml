@@ -2,4 +2,74 @@
     <string name="app_name">AmigoPeludo</string>
     <string name="selecciona_servicio">Selecciona un servicio</string>
 
+        <!-- ListadoProfesionalesActivity -->
+    <string name="titulo_profesionales">Profesionales</string>
+    <string name="log_no_profesionales">No se encontraron profesionales o la lista está vacía</string>
+
+        <!-- ServiciosActivity -->
+    <string name="titulo_mis_servicios">Mis Servicios</string>
+    <string name="titulo_cerrar_sesion">Cerrar sesión</string>
+    <string name="mensaje_cerrar_sesion">¿Estás seguro de que deseas cerrar sesión?</string>
+    <string name="accion_si">Sí</string>
+    <string name="accion_no">No</string>
+    <string name="titulo_nuevo_servicio">Nuevo Servicio</string>
+    <string name="titulo_editar_servicio">Editar Servicio</string>
+    <string name="mensaje_completa_campos">Completa todos los campos</string>
+    <string name="mensaje_importe_invalido">Importe inválido</string>
+    <string name="mensaje_servicio_agregado">Servicio agregado</string>
+    <string name="mensaje_error_agregar">Error al agregar servicio</string>
+    <string name="mensaje_servicio_actualizado">Servicio actualizado</string>
+    <string name="mensaje_error_actualizar">Error al actualizar servicio</string>
+    <string name="titulo_eliminar_servicio">Eliminar Servicio</string>
+    <string name="mensaje_eliminar_servicio">¿Estás seguro de que deseas eliminar este servicio?</string>
+    <string name="mensaje_servicio_eliminado">Servicio eliminado</string>
+    <string name="mensaje_error_eliminar">Error al eliminar servicio</string>
+
+    <!-- ClienteActivity -->
+    <string name="titulo_mis_citas">Mis Citas</string>
+    <string name="no_servicios_disponibles">No hay servicios disponibles</string>
+    <string name="elige_profesional">Elige un profesional</string>
+    <string name="elige_servicio">Elige un servicio</string>
+    <string name="nueva_cita">Nueva Cita</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="agregar">Agregar</string>
+    <string name="completa_todos_los_campos">Completa todos los campos</string>
+    <string name="franja_no_disponible">Franja no disponible</string>
+    <string name="cita_añadida">Cita añadida correctamente</string>
+    <string name="error_crear_cita">Error al crear la cita</string>
+    <string name="editar_cita">Editar Cita</string>
+    <string name="profesional_prefijo">Profesional: </string>
+    <string name="cita_no_disponible">Ya hay una cita a esa hora</string>
+    <string name="cita_actualizada">Cita actualizada</string>
+    <string name="error_actualizar_cita">Error al actualizar cita</string>
+    <string name="no_se_pueden_cargar_servicios">No se pueden cargar los servicios</string>
+    <string name="eliminar_cita">Eliminar Cita</string>
+    <string name="confirmar_eliminar_cita">¿Estás seguro de que deseas eliminar esta cita?</string>
+    <string name="selecciona_franja_horaria">Selecciona una franja horaria</string>
+    <string name="no_hay_franjas_disponibles">No hay franjas disponibles</string>
+    <string name="selecciona_fecha">Selecciona una fecha</string>
+    <string name="guardar">Guardar</string>
+
+    <string name="titulo_citas_profesionales">Citas Profesionales</string>
+    <string name="mensaje_back_prohibido">Usa el botón de cerrar sesión</string>
+    <string name="mensaje_cita_toast">Cita: </string>
+    <string name="titulo_cancelar_cita">Cancelar Cita</string>
+    <string name="mensaje_cancelar_cita">¿Deseas cancelar esta cita?</string>
+    <string name="cita_cancelada">Cita cancelada correctamente</string>
+    <string name="error_cancelar_cita">Error al cancelar cita</string>
+
+    <string name="error_usuario_contrasena">Usuario o contraseña incorrectos</string>
+    <string name="error_conexion">Error de conexión: %1$s</string>
+    <string name="error_registro">Error al registrar</string>
+    <string name="error_excepcion">Excepción: %1$s</string>
+    <string name="registro_error_general">Error al registrar: %1$s</string>
+    <string name="error_servidor">Error del servidor: %1$s</string>
+    <string name="log_conexion_error">Error de conexión</string>
+    <string name="log_verificar_disponibilidad">Error al verificar disponibilidad: %1$s</string>
+    <string name="log_obtener_horas_ocupadas">Error al obtener horas ocupadas: %1$s</string>
+    <string name="log_cargando_profesionales">Error cargando profesionales: %1$s</string>
+    <string name="error_horas_ocupadas">Error al obtener horas ocupadas</string>
+    <string name="error_verificar_disponibilidad">Error al verificar disponibilidad</string>
+    <string name="error_cargar_profesionales">Error cargando profesionales</string>
+
 </resources>

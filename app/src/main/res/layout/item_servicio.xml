@@ -1,30 +1,61 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="12dp"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/selectableItemBackground">
+    android:layout_margin="8dp"
+    card_view:cardCornerRadius="12dp"
+    card_view:cardElevation="4dp"
+    card_view:cardBackgroundColor="@color/item_background_soft">
 
-    <TextView
-        android:id="@+id/txtNombreServicio"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        android:text="Nombre del servicio" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
 
-    <TextView
-        android:id="@+id/txtDescripcionServicio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Descripción del servicio" />
+        <!-- Contenedor del texto -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txtImporteServicio"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="€00.00"
-        android:textColor="#4CAF50"
-        android:textStyle="italic" />
+            <TextView
+                android:id="@+id/txtNombreServicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nombre del servicio"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:textColor="@color/amigopeludo_primary" />
 
-</LinearLayout>
+            <TextView
+                android:id="@+id/txtDescripcionServicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Descripción del servicio"
+                android:textColor="#555555"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtImporteServicio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="€00.00"
+                android:textColor="@color/amigopeludo_success"
+                android:textStyle="italic"
+                android:textSize="14sp"
+                android:layout_marginTop="4dp"/>
+        </LinearLayout>
+
+        <!-- Icono a la derecha (opcional) -->
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/servicios_mascotas"
+            android:contentDescription="Icono servicios" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

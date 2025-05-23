@@ -37,4 +37,9 @@ public class CitasAdapter extends RecyclerView.Adapter<CitaViewHolder> {
     public int getItemCount() {
         return citasList.size();
     }
+
+    public void actualizarCitas(List<Cita> nuevasCitas) {
+        this.citasList = nuevasCitas;
+        notifyDataSetChanged();
+    }
 }

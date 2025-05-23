@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 import es.studium.amigopeludo.R;
-import es.studium.amigopeludo.ListadoProfesionales.Profesional;
 
 public class ListadoProfesionalesAdapter extends RecyclerView.Adapter<ListadoProfesionalesAdapter.ViewHolder> {
 
@@ -21,19 +20,21 @@ public class ListadoProfesionalesAdapter extends RecyclerView.Adapter<ListadoPro
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView txtNombre, txtTelefono, txtEmail;
+        TextView txtNombre, txtTelefono, txtEmail, txtServicios;
 
         public ViewHolder(View itemView) {
             super(itemView);
             txtNombre = itemView.findViewById(R.id.txtNombreProfesional);
             txtTelefono = itemView.findViewById(R.id.txtTelefonoProfesional);
             txtEmail = itemView.findViewById(R.id.txtEmailProfesional);
+            txtServicios = itemView.findViewById(R.id.txtServiciosProfesional); // Nuevo campo
         }
 
         public void bind(Profesional profesional) {
             txtNombre.setText(profesional.getNombre());
             txtTelefono.setText("Tel: " + profesional.getTelefono());
             txtEmail.setText("Email: " + profesional.getEmail());
+            txtServicios.setText("Servicios:\n" + profesional.getServicios());
         }
     }
 
@@ -53,4 +54,3 @@ public class ListadoProfesionalesAdapter extends RecyclerView.Adapter<ListadoPro
         return profesionales.size();
     }
 }
-

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -25,8 +26,10 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -42,8 +45,10 @@ import es.studium.amigopeludo.Servicios.Servicio;
 public class ClienteActivity extends AppCompatActivity implements RecyclerViewOnItemClickListener {
 
     private RecyclerView recyclerView;
+    private CalendarView calendarView;
     private CitasAdapter citasAdapter;
     private List<Cita> citasList = new ArrayList<>();
+    private List<Cita> todasLasCitas = new ArrayList<>();
     private List<Servicio> serviciosList = new ArrayList<>();
     private int idCliente;
 
@@ -67,6 +72,12 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
         citasAdapter = new CitasAdapter(citasList, this);
         recyclerView.setAdapter(citasAdapter);
 
+        calendarView = findViewById(R.id.calendarView);
+        calendarView.setOnDateChangeListener((view, year, month, dayOfMonth) -> {
+            String fechaSeleccionada = String.format(Locale.getDefault(), "%04d-%02d-%02d", year, month + 1, dayOfMonth);
+            filtrarCitasPorFecha(fechaSeleccionada);
+        });
+
         Button btnNuevaCita = findViewById(R.id.btnNuevaCita);
         btnNuevaCita.setOnClickListener(v -> cargarServiciosYMostrarDialogo());
 
@@ -84,11 +95,29 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
         new Thread(() -> {
             ArrayList<Cita> citas = ConexionBaseDatos.consultarCitas(idCliente);
             runOnUiThread(() -> {
-                citasList.clear();
-                citasList.addAll(citas);
-                citasAdapter.notifyDataSetChanged();
+                todasLasCitas.clear();
+                todasLasCitas.addAll(citas);
+                filtrarCitasPorFecha(obtenerFechaActual());
             });
         }).start();
+    }
+
+    private void filtrarCitasPorFecha(String fecha) {
+        List<Cita> filtradas = new ArrayList<>();
+        for (Cita cita : todasLasCitas) {
+            if (cita.getFecha().equals(fecha)) {
+                filtradas.add(cita);
+            }
+        }
+        filtradas.sort((c1, c2) -> c1.getHora().compareTo(c2.getHora()));
+        citasList.clear();
+        citasList.addAll(filtradas);
+        citasAdapter.notifyDataSetChanged();
+    }
+
+    private String obtenerFechaActual() {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        return sdf.format(new Date());
     }
 
     private void cargarServiciosYMostrarDialogo() {
@@ -117,7 +146,6 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
 
         edtFecha.setOnClickListener(v -> showDatePicker(edtFecha));
 
-        // Actualizar franjas al hacer click en hora
         edtHora.setOnClickListener(v -> {
             String fecha = edtFecha.getText().toString();
             int pos = spinnerServicios.getSelectedItemPosition();
@@ -133,7 +161,6 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
             showFranjaHorariaDialog(edtHora, fecha, servicio.getIdServicio());
         });
 
-        // Cargar profesionales
         new Thread(() -> {
             List<String> nombresProfesionales = ConexionBaseDatos.obtenerNombresProfesionales();
             nombresProfesionales.add(0, "Elige un profesional");
