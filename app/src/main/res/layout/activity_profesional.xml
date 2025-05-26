@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:title="Citas Profesionales"
+            app:title="@string/titulo_citas_profesionales"
             app:titleTextColor="@android:color/white" />
 
         <CalendarView
@@ -45,7 +45,7 @@
             android:id="@+id/btnServicios"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Servicios"
+            android:text="@string/titulo_mis_servicios"
             android:layout_margin="16dp" />
     </LinearLayout>
 </FrameLayout>

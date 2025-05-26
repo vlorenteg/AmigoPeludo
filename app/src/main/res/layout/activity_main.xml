@@ -12,7 +12,7 @@
         android:layout_width="400dp"
         android:layout_height="400dp"
         android:src="@drawable/logo_amigopeludo"
-        android:contentDescription="Imagen de una mascota"
+        android:contentDescription="@string/descripcion_logo"
         android:layout_marginBottom="20dp" />
 
     <Button
@@ -20,7 +20,7 @@
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesión"
+        android:text="@string/accion_entrar"
         android:layout_marginBottom="20dp" />
 
     <Button
@@ -28,5 +28,5 @@
         android:id="@+id/btnRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Registrarse" />
+        android:text="@string/accion_registrarse" />
 </LinearLayout>

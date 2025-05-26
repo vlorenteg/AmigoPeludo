@@ -9,21 +9,21 @@
         android:id="@+id/txtServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Servicio"
+        android:text="@string/label_servicio"
         android:textStyle="bold" />
 
     <TextView
         android:id="@+id/txtProfesional"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Profesional"
+        android:text="@string/label_profesional"
         android:textColor="#555" />
 
     <TextView
         android:id="@+id/estado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Estado de la cita"
+        android:text="@string/label_estado_cita"
         android:textSize="18sp"
         android:textStyle="bold" />
 
@@ -31,13 +31,13 @@
         android:id="@+id/fecha"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fecha de la cita" />
+        android:text="@string/label_fecha_cita" />
 
     <TextView
         android:id="@+id/hora"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hora de la cita"
+        android:text="@string/label_hora_cita"
         android:layout_marginTop="4dp" />
 
 </LinearLayout>

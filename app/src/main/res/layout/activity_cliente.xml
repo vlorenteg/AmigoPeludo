@@ -13,7 +13,6 @@
         android:contentDescription="@null"
         android:scaleType="fitCenter" />
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:title="Mis Citas"
+            app:title="@string/titulo_mis_citas"
             app:titleTextColor="@android:color/white" />
 
         <CalendarView
@@ -46,7 +45,7 @@
             android:id="@+id/btnNuevaCita"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nueva Cita"
+            android:text="@string/nueva_cita"
             android:layout_margin="16dp" />
 
         <Button
@@ -54,8 +53,8 @@
             android:id="@+id/btnVerProfesionales"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ver Profesionales"
-            android:layout_margin="16dp"/>
+            android:text="@string/ver_profesionales"
+            android:layout_margin="16dp" />
 
     </LinearLayout>
 </FrameLayout>

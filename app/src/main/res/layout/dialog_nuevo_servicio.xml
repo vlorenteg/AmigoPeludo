@@ -9,7 +9,7 @@
         android:id="@+id/edtNombreServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del servicio"
+        android:hint="@string/hint_nombre_servicio"
         android:inputType="textCapWords"
         android:maxLength="50" />
 
@@ -17,7 +17,7 @@
         android:id="@+id/edtDescripcionServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Descripción"
+        android:hint="@string/hint_descripcion"
         android:inputType="textCapSentences"
         android:maxLength="255"
         android:layout_marginTop="8dp" />
@@ -26,7 +26,7 @@
         android:id="@+id/edtImporteServicio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Importe (€)"
+        android:hint="@string/hint_importe"
         android:inputType="numberDecimal"
         android:maxLength="10"
         android:layout_marginTop="8dp" />
@@ -42,13 +42,13 @@
             android:id="@+id/btnCancelarServicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancelar" />
+            android:text="@string/accion_cancelar" />
 
         <Button
             android:id="@+id/btnAceptarServicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Aceptar"
+            android:text="@string/accion_aceptar"
             android:layout_marginStart="8dp" />
     </LinearLayout>
 </LinearLayout>

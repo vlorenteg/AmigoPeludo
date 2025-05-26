@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -94,6 +96,22 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
     private void cargarCitasCliente() {
         new Thread(() -> {
             ArrayList<Cita> citas = ConexionBaseDatos.consultarCitas(idCliente);
+            Date ahora = new Date();
+            SimpleDateFormat sdfFechaHora = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+
+            for (Cita cita : citas) {
+                try {
+                    String fechaHoraCita = cita.getFecha() + " " + cita.getHora();
+                    Date fechaCita = sdfFechaHora.parse(fechaHoraCita);
+                    if (fechaCita != null && fechaCita.before(ahora) && !cita.getEstado().equalsIgnoreCase("finalizada")) {
+                        cita.setEstado("finalizada");
+                        ConexionBaseDatos.modificarCita(cita);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
             runOnUiThread(() -> {
                 todasLasCitas.clear();
                 todasLasCitas.addAll(citas);
@@ -167,7 +185,9 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
             runOnUiThread(() -> {
                 ArrayAdapter<String> adapterProfesionales = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, nombresProfesionales) {
                     @Override
-                    public boolean isEnabled(int position) { return position != 0; }
+                    public boolean isEnabled(int position) {
+                        return position != 0;
+                    }
 
                     @Override
                     public View getDropDownView(int position, View convertView, ViewGroup parent) {
@@ -201,7 +221,9 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
                     runOnUiThread(() -> {
                         ArrayAdapter<String> adapterServicios = new ArrayAdapter<String>(ClienteActivity.this, android.R.layout.simple_spinner_dropdown_item, nombresServicios) {
                             @Override
-                            public boolean isEnabled(int pos) { return pos != 0; }
+                            public boolean isEnabled(int pos) {
+                                return pos != 0;
+                            }
 
                             @Override
                             public View getDropDownView(int pos, View convertView, ViewGroup parent) {
@@ -217,14 +239,16 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         builder.setTitle("Nueva Cita");
         builder.setNegativeButton("Cancelar", (dialog, which) -> dialog.dismiss());
 
         AlertDialog dialog = builder.create();
-        dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Agregar", (d, which) -> {});
+        dialog.setButton(AlertDialog.BUTTON_POSITIVE, "Agregar", (d, which) -> {
+        });
         dialog.show();
 
         dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener(v -> {
@@ -235,6 +259,19 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
 
             if (posProfesional == 0 || posServicio == 0 || fecha.isEmpty() || hora.isEmpty()) {
                 Toast.makeText(this, "Completa todos los campos", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.getDefault());
+                Date fechaSeleccionada = sdf.parse(fecha + " " + hora);
+                Date ahora = new Date();
+                if (fechaSeleccionada != null && fechaSeleccionada.before(ahora)) {
+                    Toast.makeText(this, "No puedes seleccionar una fecha y hora pasada", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            } catch (Exception e) {
+                Toast.makeText(this, "Error al validar la fecha", Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -362,9 +399,7 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
 
     private void showFranjaHorariaDialog(EditText edtHora, String fecha, int idServicio) {
         List<String> franjas = new ArrayList<>();
-        List<String> disponibles = new ArrayList<>();
 
-        // Generar franjas de 09:00 a 21:00
         for (int hora = 9; hora < 21; hora++) {
             String inicio = String.format("%02d:00", hora);
             String fin = String.format("%02d:00", hora + 1);
@@ -372,33 +407,65 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
         }
 
         new Thread(() -> {
-            List<String> ocupadas = ConexionBaseDatos.obtenerHorasOcupadas(fecha, idServicio); // Nueva función
-
-            for (String franja : franjas) {
-                String horaInicio = franja.split(" - ")[0];
-                if (!ocupadas.contains(horaInicio)) {
-                    disponibles.add(franja);
-                }
-            }
+            List<String> ocupadas = ConexionBaseDatos.obtenerHorasOcupadas(fecha, idServicio);
 
             runOnUiThread(() -> {
-                if (disponibles.isEmpty()) {
-                    Toast.makeText(this, "No hay franjas disponibles", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("Selecciona una franja horaria");
 
-                new AlertDialog.Builder(this)
-                        .setTitle("Selecciona una franja horaria")
-                        .setItems(disponibles.toArray(new String[0]), (dialog, which) -> {
-                            String seleccion = disponibles.get(which);
-                            String horaInicio = seleccion.split(" - ")[0];
-                            edtHora.setText(horaInicio);
-                        })
-                        .show();
+                ListView listView = new ListView(this);
+                BaseAdapter adapter = new BaseAdapter() {
+                    @Override
+                    public int getCount() {
+                        return franjas.size();
+                    }
+
+                    @Override
+                    public Object getItem(int position) {
+                        return franjas.get(position);
+                    }
+
+                    @Override
+                    public long getItemId(int position) {
+                        return position;
+                    }
+
+                    @Override
+                    public View getView(int position, View convertView, ViewGroup parent) {
+                        TextView textView = new TextView(ClienteActivity.this);
+                        textView.setPadding(30, 30, 30, 30);
+                        textView.setTextSize(18);
+                        String franja = franjas.get(position);
+                        String horaInicio = franja.split(" - ")[0];
+
+                        textView.setText(franja);
+                        if (ocupadas.contains(horaInicio)) {
+                            textView.setTextColor(Color.LTGRAY);
+                            textView.setEnabled(false);
+                        } else {
+                            textView.setTextColor(Color.BLACK);
+                            textView.setEnabled(true);
+                        }
+                        return textView;
+                    }
+                };
+
+                listView.setAdapter(adapter);
+
+                AlertDialog dialog = builder.setView(listView).create();
+
+                listView.setOnItemClickListener((parent, view, position, id) -> {
+                    String horaInicio = franjas.get(position).split(" - ")[0];
+                    if (!ocupadas.contains(horaInicio)) {
+                        edtHora.setText(horaInicio);
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
             });
         }).start();
     }
-
 
     private void cargarServiciosYMostrarDialogoEdit(Cita cita) {
         new Thread(() -> {
@@ -471,5 +538,4 @@ public class ClienteActivity extends AppCompatActivity implements RecyclerViewOn
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

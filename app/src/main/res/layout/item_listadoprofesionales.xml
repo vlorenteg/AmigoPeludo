@@ -15,7 +15,6 @@
         android:gravity="center_vertical"
         android:padding="16dp">
 
-        <!-- Contenedor de texto -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -24,7 +23,7 @@
 
             <TextView
                 android:id="@+id/txtNombreProfesional"
-                android:text="Nombre del profesional"
+                android:text="@string/label_nombre_profesional"
                 android:textStyle="bold"
                 android:textSize="18sp"
                 android:textColor="@color/amigopeludo_primary"
@@ -33,7 +32,7 @@
 
             <TextView
                 android:id="@+id/txtTelefonoProfesional"
-                android:text="Tel: 123456789"
+                android:text="@string/label_telefono_ejemplo"
                 android:textColor="#555555"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -41,7 +40,7 @@
 
             <TextView
                 android:id="@+id/txtEmailProfesional"
-                android:text="Email: ejemplo@correo.com"
+                android:text="@string/label_email_ejemplo"
                 android:textColor="#555555"
                 android:textSize="14sp"
                 android:layout_width="wrap_content"
@@ -56,13 +55,12 @@
                 android:textColor="#444444" />
         </LinearLayout>
 
-        <!-- Icono a la derecha -->
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="8dp"
             android:src="@drawable/servicios_mascotas"
-            android:contentDescription="Icono servicios" />
+            android:contentDescription="@string/descripcion_icono_servicios" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

@@ -10,7 +10,7 @@
         android:id="@+id/etEmailLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo electrónico"
+        android:hint="@string/hint_email"
         android:inputType="textEmailAddress"
         android:importantForAutofill="yes"
         android:maxLines="1" />
@@ -19,7 +19,7 @@
         android:id="@+id/etPasswordLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
+        android:hint="@string/hint_contrasena"
         android:inputType="textPassword"
         android:maxLength="255"
         android:importantForAutofill="no"

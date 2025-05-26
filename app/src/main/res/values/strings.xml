@@ -2,11 +2,9 @@
     <string name="app_name">AmigoPeludo</string>
     <string name="selecciona_servicio">Selecciona un servicio</string>
 
-        <!-- ListadoProfesionalesActivity -->
     <string name="titulo_profesionales">Profesionales</string>
     <string name="log_no_profesionales">No se encontraron profesionales o la lista está vacía</string>
 
-        <!-- ServiciosActivity -->
     <string name="titulo_mis_servicios">Mis Servicios</string>
     <string name="titulo_cerrar_sesion">Cerrar sesión</string>
     <string name="mensaje_cerrar_sesion">¿Estás seguro de que deseas cerrar sesión?</string>
@@ -25,7 +23,6 @@
     <string name="mensaje_servicio_eliminado">Servicio eliminado</string>
     <string name="mensaje_error_eliminar">Error al eliminar servicio</string>
 
-    <!-- ClienteActivity -->
     <string name="titulo_mis_citas">Mis Citas</string>
     <string name="no_servicios_disponibles">No hay servicios disponibles</string>
     <string name="elige_profesional">Elige un profesional</string>
@@ -71,5 +68,43 @@
     <string name="error_horas_ocupadas">Error al obtener horas ocupadas</string>
     <string name="error_verificar_disponibilidad">Error al verificar disponibilidad</string>
     <string name="error_cargar_profesionales">Error cargando profesionales</string>
+
+    <string name="titulo_login">Iniciar Sesión</string>
+    <string name="titulo_registro">Registrarse</string>
+    <string name="accion_entrar">Entrar</string>
+    <string name="accion_cancelar">Cancelar</string>
+    <string name="accion_registrarse">Registrarse</string>
+    <string name="mensaje_rellena_campos">Rellena todos los campos</string>
+    <string name="mensaje_email_invalido">Email no válido</string>
+    <string name="mensaje_telefono_invalido">Teléfono inválido (mínimo 9 dígitos)</string>
+    <string name="mensaje_registro_exitoso">Registro exitoso como %1$s</string>
+
+    <string name="ver_profesionales">Ver Profesionales</string>
+    <string name="titulo_mis_citas2">Mis Citas</string>
+    <string name="descripcion_logo">Imagen de una mascota</string>
+    <string name="hint_email">Correo electrónico</string>
+    <string name="hint_contrasena">Contraseña</string>
+    <string name="hint_nombre_servicio">Nombre del servicio</string>
+    <string name="hint_descripcion">Descripción</string>
+    <string name="hint_importe">Importe (€)</string>
+    <string name="accion_aceptar">Aceptar</string>
+    <string name="hint_nombre_completo">Nombre completo</string>
+    <string name="hint_telefono">Teléfono (9 dígitos)</string>
+    <string name="radio_cliente">Cliente</string>
+    <string name="radio_profesional">Profesional</string>
+    <string name="label_servicio">Servicio</string>
+    <string name="label_profesional">Profesional</string>
+    <string name="label_estado_cita">Estado de la cita</string>
+    <string name="label_fecha_cita">Fecha de la cita</string>
+    <string name="label_hora_cita">Hora de la cita</string>
+    <string name="label_nombre_profesional">Nombre del profesional</string>
+    <string name="label_telefono_ejemplo">Tel: 123456789</string>
+    <string name="label_email_ejemplo">Email: ejemplo@correo.com</string>
+    <string name="descripcion_icono_servicios">Icono servicios</string>
+    <string name="label_nombre_servicio">Nombre del servicio</string>
+    <string name="label_descripcion_servicio">Descripción del servicio</string>
+    <string name="label_importe_ejemplo">€00.00</string>
+
+
 
 </resources>

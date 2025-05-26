@@ -15,7 +15,6 @@
         android:gravity="center_vertical"
         android:padding="16dp">
 
-        <!-- Contenedor del texto -->
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -26,7 +25,7 @@
                 android:id="@+id/txtNombreServicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nombre del servicio"
+                android:text="@string/label_nombre_servicio"
                 android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@color/amigopeludo_primary" />
@@ -35,7 +34,7 @@
                 android:id="@+id/txtDescripcionServicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Descripción del servicio"
+                android:text="@string/label_descripcion_servicio"
                 android:textColor="#555555"
                 android:textSize="14sp" />
 
@@ -43,19 +42,19 @@
                 android:id="@+id/txtImporteServicio"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="€00.00"
+                android:text="@string/label_importe_ejemplo"
                 android:textColor="@color/amigopeludo_success"
                 android:textStyle="italic"
                 android:textSize="14sp"
                 android:layout_marginTop="4dp"/>
         </LinearLayout>
 
-        <!-- Icono a la derecha (opcional) -->
         <ImageView
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="8dp"
             android:src="@drawable/servicios_mascotas"
-            android:contentDescription="Icono servicios" />
+            android:contentDescription="@string/descripcion_icono_servicios" />
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

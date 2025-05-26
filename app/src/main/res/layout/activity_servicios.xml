@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:title="Mis Servicios"
+            app:title="@string/titulo_mis_servicios"
             app:titleTextColor="@android:color/white" />
 
         <androidx.recyclerview.widget.RecyclerView
@@ -39,7 +39,7 @@
             android:id="@+id/btnNuevoServicio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nuevo Servicio"
+            android:text="@string/titulo_nuevo_servicio"
             android:layout_margin="16dp" />
     </LinearLayout>
 </FrameLayout>

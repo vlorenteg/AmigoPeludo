@@ -14,7 +14,7 @@
             android:id="@+id/etNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombre completo"
+            android:hint="@string/hint_nombre_completo"
             android:inputType="textPersonName"
             android:maxLength="50" />
 
@@ -22,7 +22,7 @@
             android:id="@+id/etTelefono"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Teléfono (9 dígitos)"
+            android:hint="@string/hint_telefono"
             android:inputType="phone"
             android:maxLength="9"
             android:layout_marginTop="10dp" />
@@ -31,7 +31,7 @@
             android:id="@+id/etEmailRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Correo electrónico"
+            android:hint="@string/hint_email"
             android:inputType="textEmailAddress"
             android:layout_marginTop="10dp" />
 
@@ -39,7 +39,7 @@
             android:id="@+id/etPasswordRegister"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Contraseña"
+            android:hint="@string/hint_contrasena"
             android:inputType="textPassword"
             android:maxLength="255"
             android:layout_marginTop="10dp" />
@@ -55,13 +55,13 @@
                 android:id="@+id/rbCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cliente" />
+                android:text="@string/radio_cliente" />
 
             <RadioButton
                 android:id="@+id/rbProfesional"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profesional"
+                android:text="@string/radio_profesional"
                 android:layout_marginStart="20dp" />
         </RadioGroup>
 
