@@ -22,8 +22,8 @@ import okhttp3.Response;
 
 public class ConexionBaseDatos {
 
-    private static final String BASE_URL = "http://192.168.1.128/ApiGestionAmigoPeludo/usuario.php";
-    private static final String CITAS_URL = "http://192.168.1.128/ApiGestionAmigoPeludo/citas.php";
+    private static final String BASE_URL = "http://192.168.1.133/ApiGestionAmigoPeludo/usuario.php";
+    private static final String CITAS_URL = "http://192.168.1.133/ApiGestionAmigoPeludo/citas.php";
 
     public interface LoginCallback {
         void onSuccess(int idUsuario, String tipoUsuario);
@@ -268,7 +268,7 @@ public class ConexionBaseDatos {
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://192.168.1.128/ApiGestionAmigoPeludo/servicios.php?idProfesional=" + idProfesional)
+                .url("http://192.168.1.133/ApiGestionAmigoPeludo/servicios.php?idProfesional=" + idProfesional)
                 .build();
 
         try {
@@ -308,7 +308,7 @@ public class ConexionBaseDatos {
                 .build();
 
         Request request = new Request.Builder()
-                .url("http://192.168.1.128/ApiGestionAmigoPeludo/servicios.php")
+                .url("http://192.168.1.133/ApiGestionAmigoPeludo/servicios.php")
                 .post(formBody)
                 .build();
 
@@ -326,7 +326,7 @@ public class ConexionBaseDatos {
         int resultado = 0;
         OkHttpClient client = new OkHttpClient();
 
-        HttpUrl.Builder urlBuilder = HttpUrl.parse("http://192.168.1.128/ApiGestionAmigoPeludo/servicios.php").newBuilder();
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("http://192.168.1.133/ApiGestionAmigoPeludo/servicios.php").newBuilder();
         urlBuilder
                 .addQueryParameter("idServicio", String.valueOf(servicio.getIdServicio()))
                 .addQueryParameter("nombreServicio", servicio.getNombreServicio())
@@ -355,7 +355,7 @@ public class ConexionBaseDatos {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("http://192.168.1.128/ApiGestionAmigoPeludo/servicios.php?idServicio=" + idServicio)
+                .url("http://192.168.1.133/ApiGestionAmigoPeludo/servicios.php?idServicio=" + idServicio)
                 .delete()
                 .build();
 
@@ -375,7 +375,7 @@ public class ConexionBaseDatos {
 
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://192.168.1.128/ApiGestionAmigoPeludo/servicios.php")
+                .url("http://192.168.1.133/ApiGestionAmigoPeludo/servicios.php")
                 .build();
 
         try {
@@ -410,7 +410,7 @@ public class ConexionBaseDatos {
         OkHttpClient client = new OkHttpClient();
         boolean disponible = false;
 
-        HttpUrl.Builder builder = HttpUrl.parse("http://192.168.1.128/ApiGestionAmigoPeludo/verificar_cita.php").newBuilder()
+        HttpUrl.Builder builder = HttpUrl.parse("http://192.168.1.133/ApiGestionAmigoPeludo/verificar_cita.php").newBuilder()
                 .addQueryParameter("fechaCita", fecha)
                 .addQueryParameter("horaCita", hora)
                 .addQueryParameter("idServicioFK", String.valueOf(idServicio));
@@ -438,7 +438,7 @@ public class ConexionBaseDatos {
         List<String> nombres = new ArrayList<>();
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("http://192.168.1.128/ApiGestionAmigoPeludo/usuario.php?tipo=profesional")
+                .url("http://192.168.1.133/ApiGestionAmigoPeludo/usuario.php?tipo=profesional")
                 .build();
 
         try {
@@ -466,7 +466,7 @@ public class ConexionBaseDatos {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("http://192.168.1.128/ApiGestionAmigoPeludo/servicios.php?nombreProfesional=" + nombreProfesional)
+                .url("http://192.168.1.133/ApiGestionAmigoPeludo/servicios.php?nombreProfesional=" + nombreProfesional)
                 .build();
 
         try {
@@ -494,7 +494,7 @@ public class ConexionBaseDatos {
         List<String> ocupadas = new ArrayList<>();
         OkHttpClient client = new OkHttpClient();
 
-        HttpUrl url = HttpUrl.parse("http://192.168.1.128/ApiGestionAmigoPeludo/franjas_ocupadas.php")
+        HttpUrl url = HttpUrl.parse("http://192.168.1.133/ApiGestionAmigoPeludo/franjas_ocupadas.php")
                 .newBuilder()
                 .addQueryParameter("fechaCita", fecha)
                 .addQueryParameter("idServicioFK", String.valueOf(idServicio))
@@ -523,7 +523,7 @@ public class ConexionBaseDatos {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("http://192.168.1.128/ApiGestionAmigoPeludo/usuario.php?tipo=profesional")
+                .url("http://192.168.1.133/ApiGestionAmigoPeludo/usuario.php?tipo=profesional")
                 .build();
 
         try {
